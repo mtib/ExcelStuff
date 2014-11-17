@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int printFile(const char* fName);
+#if defined _WIN16 || defined _WIN32 || defined _WIN64
+#define EOL "\r\n"
+#elif defined __linux__ || defined __unix__
+#define EOL "\n"
+#endif
+
+static int decryptFile(const char*, const char*);
 
 int main(int argc,char **argv)
 {
@@ -10,35 +16,32 @@ int main(int argc,char **argv)
 		switch(decryptFile(argv[1],argv[2]))
 		{
 			case -1:
-				printf("Error opening File %s\r\n",argv[1]);
+				printf("Error opening File %s" EOL,argv[1]);
 				break;
 			case -2:
-				printf("Error opening File %s\r\n",argv[2]);
+				printf("Error opening File %s" EOL,argv[2]);
 				break;
 			default:
-				printf("Password removed\r\nDo the folowing now:\r\n");
-				printf("1. Open the excel sheet and press [ALT]+[F11]\r\n");
-				printf("   Confirm any errors that might appear\r\n");
-				printf("2. go to Tools > VBA project properties.\r\n");
-				printf("3. In the Tab \"Protection\" enter any password\r\n");
-				printf("   Do not clear the Checkbox!\r\n");
-				printf("4. Save, close the Editor, save the excel sheet and close it\r\n");
-				printf("5. Open it again\r\n");
-				printf("6. Repear step 1 and 2, there should be no errors\r\n");
-				printf("7. Clear the password checkbox in the \"protection\" tab\r\n");
-				printf("8. Repeat Steps 4 and 5.\r\n");
-				printf("9. Your password is gone!\r\n");
-				printf("\r\n");
-				printf("/u/AyrA_ch\r\n");
-				printf("\r\n");
+				puts("Password removed\r\nDo the folowing now:" EOL
+				"1. Open the excel sheet and press [ALT]+[F11]" EOL
+				"   Confirm any errors that might appear" EOL
+				"2. go to Tools > VBA project properties." EOL
+				"3. In the Tab \"Protection\" enter any password" EOL
+				"   Do not clear the Checkbox!" EOL
+				"4. Save, close the Editor, save the excel sheet and close it" EOL
+				"5. Open it again" EOL
+				"6. Repear step 1 and 2, there should be no errors" EOL
+				"7. Clear the password checkbox in the \"protection\" tab" EOL
+				"8. Repeat Steps 4 and 5." EOL
+				"9. Your password is gone!" EOL EOL
+				"/u/AyrA_ch");
 				break;
 		}
 	}
 	else
 	{
-		printf("excelDecrypt <input-filename> <output-filename>");
+		puts("excelDecrypt <input-filename> <output-filename>");
 	}
-	printf("\r\n");
 	return 0;
 }
 
