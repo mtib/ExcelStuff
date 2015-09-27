@@ -47,6 +47,7 @@ A Maze generator and solving assistant
 Allows you to generate and solve mazes
 
 Utilizes macros.
+Now with better Movement. You only need to decide crossways, the computer follows corridors and corners on it's own.
 
 How To
 ------
