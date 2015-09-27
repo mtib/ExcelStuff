@@ -89,7 +89,7 @@ This file decrypts an office 2003 file.
 You can use it for word and powerpoint documents as well.
 Source file and a precompiled and signed exe file are present in the repository.
 
-You can also use [My online service](http://home.ayra.ch/unlock/).
+You can also use [AyrA's online service](http://home.ayra.ch/unlock/).
 The online service also supports Office 2010 documents
 
 How To
