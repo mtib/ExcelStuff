@@ -78,7 +78,9 @@ The reset button should however allow you to solve the already present maze agai
 
 Version
 -------
-The File has been tested under Windows 7 (64 bit) using Office 2010 (32 bit).
+Files have been tested under:
+- Windows 7 (64 bit) using Office 2010 (32 bit)
+- Windows 8.1 (64 bit) using Office 2013 (64 bit)
 
 ExcelDecrypt
 ============
